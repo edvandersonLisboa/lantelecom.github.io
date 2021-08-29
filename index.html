@@ -16,10 +16,11 @@
 	<link rel="stylesheet" id="estilos-css" href="./assets/css/estilo.css" media="all">
 	<link rel="stylesheet" href="./assets/OwlCarousel/assets/owl.carousel.min.css">
 	<link rel="stylesheet" href="./assets/OwlCarousel/assets/owl.theme.default.min.css">
+
 	<body>
 		<div id="home"></div>
 	<header class="main-header"  style="
-    width: 100%;
+    width: 100%;background-color:white;
 ">
 
 		<div class="header-flex-main">
@@ -48,7 +49,7 @@
 					<a href="#servicos" >
 						<li class="menu-iem" >SERVIÇOS</li>
 					</a>
-					<a href="#faleconosco">
+					<a href="./faleconosco.html">
 						<li class="menu-iem" >FALE CONOSCO</li>
 					</a>
 					<a href="./cadastro.html">
@@ -84,14 +85,17 @@
 "></i>CENTRAL DO ASSINANTE</a>
 			</div>
 
-			<div class="mobile-hamburguer header-flex">
-				<i class="fas fa-bars icone-menu"></i>
+			<div class="mobile-hamburguer header-flex mobile-active">
+				<i class="fas fa-bars icone-menu" style="color: black;"></i>
 			</div>
 		</div>
 
-
+		<div>
+			<a href="#" class="central-mobile" ><i class="fas fa-user-lock" ></i>CENTRAL DO ASSINANTE</a>
+		</div>
 	</header>
-
+	
+</div>
 
 	<div class="overlay"></div>
 
@@ -116,18 +120,23 @@
 
 		<div class="nav-mobile">
 			<ul>
-				<a href="#home">
-					<li>HOME</li>
+				<a href="#home" >
+					<li class="menu-iem">HOME</li>
 				</a>
 				<a href="#planos">
-					<li>PLANOS</li>
+					<li class="menu-iem" >PLANOS</li>
 				</a>
-				<a href="#" >
-					<li>VELOCÍMETRO</li>
-				</a>
+				
+				<a href="#vantagens"><li class="menu-iem" >VANTAGENS</li></a>
 
-				<a href="#faleconosco">
-					<li>FALE CONOSCO</li>
+				<a href="#servicos" >
+					<li class="menu-iem" >SERVIÇOS</li>
+				</a>
+				<a href="./faleconosco.html">
+					<li class="menu-iem" >FALE CONOSCO</li>
+				</a>
+				<a href="./cadastro.html">
+					<li class="menu-iem">CADASTRA-SE</li>
 				</a>
 			</ul>
 		</div>
@@ -142,7 +151,11 @@
     align-items: center;
     /* min-width: 1500px; */
 ">
-
+<!-- <picture>
+    <source srcset="smaller.jpg" media="(max-width: 768px)">
+    <source srcset="default.jpg">
+    <img srcset="default.jpg" alt="My default image">
+</picture> -->
 		<!-- Insert to your webpage where you want to display the slider -->
 		<div class="slider">
 			<div id="banners" class="owl-carousel ">
@@ -607,6 +620,24 @@ width: 100%;
 			}
 			);
 		})
+		$(".mobile-active").on('click',function(e){
+			if(e.target.classList.contains("active")){
+				document.querySelector(".mobile-menu").style = "left:-100%; z-index:99999";
+				document.querySelector(".overlay").style = "display:none; z-index:99999";
+				e.target.parentElement.classList.remove("active");
+			}else{
+				document.querySelector(".mobile-menu").style = "left:0; z-index:99999";
+				document.querySelector(".overlay").style = "display: block; z-index:99999";
+				e.target.parentElement.classList.add("active");
+			}
+	
+		})
+		$(".close-menu").on('click',function(e){
+			document.querySelector(".mobile-menu").style = "left:-100%; z-index:99999";
+			document.querySelector(".overlay").style = "display:none; z-index:99999";
+			document.querySelector(".mobile-active").classList.remove("active");
+			})
+
 	</script>
 </body>
 </html>

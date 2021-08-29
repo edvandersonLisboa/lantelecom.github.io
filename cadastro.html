@@ -19,7 +19,7 @@
 	<body>
 		<div id="home"></div>
 		<header class="main-header"  style="
-    width: 100%;
+    width: 100%;background-color:white;
 ">
 
 		<div class="header-flex-main">
@@ -48,7 +48,7 @@
 					<a href="./index.html#servicos" >
 						<li class="menu-iem" >SERVIÇOS</li>
 					</a>
-					<a href="./index.html#faleconosco">
+					<a href="./faleconosco.html">
 						<li class="menu-iem" >FALE CONOSCO</li>
 					</a>
 					<a href="./cadastro.html">
@@ -84,14 +84,17 @@
 "></i>CENTRAL DO ASSINANTE</a>
 			</div>
 
-			<div class="mobile-hamburguer header-flex">
-				<i class="fas fa-bars icone-menu"></i>
+			<div class="mobile-hamburguer header-flex mobile-active">
+				<i class="fas fa-bars icone-menu" style="color: black;"></i>
 			</div>
 		</div>
 
-
+		<div>
+			<a href="#" class="central-mobile" ><i class="fas fa-user-lock" ></i>CENTRAL DO ASSINANTE</a>
+		</div>
 	</header>
-
+	
+</div>
 
 	<div class="overlay"></div>
 
@@ -116,21 +119,27 @@
 
 		<div class="nav-mobile">
 			<ul>
-				<a href="#home">
-					<li>HOME</li>
+				<a href="./index.html#home" >
+					<li class="menu-iem">HOME</li>
 				</a>
-				<a href="#planos">
-					<li>PLANOS</li>
+				<a href="./index.html#planos">
+					<li class="menu-iem" >PLANOS</li>
 				</a>
-				<a href="#" >
-					<li>VELOCÍMETRO</li>
-				</a>
+				
+				<a href="#vantagens"><li class="menu-iem" >VANTAGENS</li></a>
 
-				<a href="#faleconosco">
-					<li>FALE CONOSCO</li>
+				<a href="./index.html#servicos" >
+					<li class="menu-iem" >SERVIÇOS</li>
+				</a>
+				<a href="./faleconosco.html">
+					<li class="menu-iem" >FALE CONOSCO</li>
+				</a>
+				<a href="./cadastro.html">
+					<li class="menu-iem">CADASTRA-SE</li>
 				</a>
 			</ul>
 		</div>
+	</div>
 	</div>
 
 
@@ -442,6 +451,23 @@
 			}
 			);
 		})
+		$(".mobile-active").on('click',function(e){
+			if(e.target.classList.contains("active")){
+				document.querySelector(".mobile-menu").style = "left:-100%; z-index:99999";
+				document.querySelector(".overlay").style = "display:none; z-index:99999";
+				e.target.parentElement.classList.remove("active");
+			}else{
+				document.querySelector(".mobile-menu").style = "left:0; z-index:99999";
+				document.querySelector(".overlay").style = "display: block; z-index:99999";
+				e.target.parentElement.classList.add("active");
+			}
+	
+		})
+		$(".close-menu").on('click',function(e){
+			document.querySelector(".mobile-menu").style = "left:-100%; z-index:99999";
+			document.querySelector(".overlay").style = "display:none; z-index:99999";
+			document.querySelector(".mobile-active").classList.remove("active");
+			})
 	</script>
 </body>
 </html>

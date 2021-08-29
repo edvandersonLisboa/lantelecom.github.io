@@ -2459,10 +2459,36 @@ a{
   color:white;
   display: none;
 }
+.active-left{
+  left:0;
+}
+.central-mobile{
+ display: none;
+ }
+ .nav-mobile a .menu-iem{
+   text-decoration: none;
+   color: white;
+ }
 @media (max-width: 1300px) {
 
   .main-header .social-links{
     display: none !important;
+  }
+ }
+
+ @media (max-width: 418px) {
+
+  .central-mobile{
+   display: block;
+   background-color: #0099ff;
+   text-decoration: none;
+   color: white;
+   padding:5px;
+   text-align: center;
+
+  }
+  .central-att{
+    display: none;
   }
  }
 
